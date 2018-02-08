@@ -47,8 +47,9 @@ public class mySinglyLinkedList<E> {
 				int index = scan.nextInt();
 				whatever.addThis(command1, index);
 				if(index < 0 || index > whatever.size()) {
-					System.out.println("Invalid input.");
-				}else {
+					System.out.println("Invalid input.\n");
+				}
+				else {
 					System.out.println("Addition successful!\n");
 				}
 				System.out.println("Here's the list now:");
@@ -79,7 +80,8 @@ public class mySinglyLinkedList<E> {
 				System.out.println();
 				if(index1 < 0 || index1 > whatever.size()) {
 					System.out.println("Invalid input.\n");
-				}else {
+				}
+				else {
 					System.out.println("Successfully Removed!\n");
 				}
 				System.out.println("Here's the list now:");
@@ -93,7 +95,8 @@ public class mySinglyLinkedList<E> {
 				whatever.changeData(command3, index2);
 				if(index2 < 0 || index2 > whatever.size()) {
 					System.out.println("Invalid input.\n");
-				}else {
+				}
+				else {
 					System.out.println("Item successfully changed!\n");
 				}
 				whatever.traverse();
@@ -149,7 +152,7 @@ public class mySinglyLinkedList<E> {
 
 	public void addFirst(E new_data) {
 		Node new_node = new Node();
-		new_node.data = new_data;    //making data = new_data
+		new_node.data = new_data;
 		if(head == null) {
 			head.next = new_node;
 			return;
@@ -183,7 +186,7 @@ public class mySinglyLinkedList<E> {
 		current.next = node;
 
 		return;
-	}
+		}
 	}
 
 	public void addLast(E new_data) {
