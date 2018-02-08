@@ -87,12 +87,15 @@ public class mySinglyLinkedList<E> {
 				System.out.println();
 				break;
 			case "Change":
-				System.out.println("Please input your new item and then index to change the list!");
+				System.out.println("Please input your new item and then index to change within the list!");
 				String command3 = scan.nextLine().trim();
 				int index2 = scan.nextInt();
 				whatever.changeData(command3, index2);
-				System.out.println();
-				System.out.println("Item successfully changed!\n");
+				if(index2 < 0 || index2 > whatever.size()) {
+					System.out.println("Invalid input.\n");
+				}else {
+					System.out.println("Item successfully changed!\n");
+				}
 				whatever.traverse();
 				System.out.println();
 				break;
@@ -118,12 +121,6 @@ public class mySinglyLinkedList<E> {
 	public class Node {
 		E data; 
 		Node next;
-
-		//		Node(E d) {
-		//			this.data = d;
-		//			next = null;
-		//		}
-
 		public Node() {
 			data = null;
 			next = null;
@@ -153,12 +150,10 @@ public class mySinglyLinkedList<E> {
 	public void addFirst(E new_data) {
 		Node new_node = new Node();
 		new_node.data = new_data;    //making data = new_data
-		//empty
 		if(head == null) {
 			head.next = new_node;
 			return;
 		}
-		//at least 1 items in list
 		new_node.next = head.next;
 		head.next = new_node;
 	}
@@ -249,14 +244,13 @@ public class mySinglyLinkedList<E> {
 
 	public void changeData(E item, int index) {
 
-		Node new_node = head;							//  Node current = head.next;
-		Node prev = null;								//  int counter = 0;
-		//  while(counter != 0) {
-		while (new_node != null && index >= 0) {			//  current = current.next
-			index--;										//  counter++;
-			prev = new_node;								//  }
-			new_node = new_node.next;					//  System.out.println("This is what current has now" + current.data);
-		}												//  curent.data = item;
+		Node new_node = head;							
+		Node prev = null;								
+		while (new_node != null && index >= 0) {
+			index--;
+			prev = new_node;
+			new_node = new_node.next;
+		}												
 		if (prev != null)
 			prev.data = item;
 	}
